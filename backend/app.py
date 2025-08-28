@@ -22,7 +22,7 @@ app.add_middleware(
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Model configuration (must match training)
+
 IMG_SIZE = 64
 PATCH_SIZE = 16
 NUM_CLASSES = 2
