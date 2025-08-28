@@ -17,7 +17,7 @@ class MlpMixer(nn.Module):
             self.mixer_layers.append(nn.ModuleList([
                 # Token-mixing
                 nn.Sequential(
-                    nn.LayerNorm(self.num_patches),  # Fixed: normalize across tokens
+                    nn.LayerNorm(self.num_patches),  
                     nn.Linear(self.num_patches, self.num_patches),
                     nn.GELU(),
                     nn.Linear(self.num_patches, self.num_patches),
@@ -36,17 +36,17 @@ class MlpMixer(nn.Module):
 
     def forward(self, x):
         B, C, H, W = x.shape
-        patch_size = H // int(self.num_patches ** 0.5)  # compute patch size from num_patches
+        patch_size = H // int(self.num_patches ** 0.5)  #compute patch size 
         patches = x.unfold(2, patch_size, patch_size).unfold(3, patch_size, patch_size)
         patches = patches.contiguous().view(B, C, -1, patch_size, patch_size)
         patches = patches.view(B, -1, C * patch_size * patch_size)
 
-        x = self.to_patch_embedding(patches)  # shape: [B, num_patches, dim]
+        x = self.to_patch_embedding(patches)  
 
         for token_mixer, channel_mixer in self.mixer_layers:
-            # Token-mixing: transpose to [B, dim, num_patches]
+         
             x = x + token_mixer(x.transpose(1, 2)).transpose(1, 2)
-            # hannel-mixing: [B, num_patches, dim]
+          
             x = x + channel_mixer(x)
 
         x = self.layer_norm(x.mean(dim=1))
