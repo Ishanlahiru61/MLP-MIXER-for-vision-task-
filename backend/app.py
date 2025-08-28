@@ -10,7 +10,7 @@ import torch.nn.functional as F
 
 app = FastAPI()
 
-# Allow frontend requests
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -19,7 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Device
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Model configuration (must match training)
@@ -34,7 +34,7 @@ model.load_state_dict(torch.load("mlp_mixer.pth", map_location=device))
 model.to(device)
 model.eval()
 
-# Preprocessing (must match training)
+# Preprocessing 
 transform = transforms.Compose([
     transforms.Resize((IMG_SIZE, IMG_SIZE)),
     transforms.ToTensor(),
