@@ -1,0 +1,12 @@
+node_modules/
+
+logs/
+*.log
+
+.env
+
+dataset/
+.vscode/
+__pycache__/
+*.pth
+*.save
