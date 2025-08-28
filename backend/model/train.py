@@ -49,4 +49,4 @@ for epoch in range(EPOCHS):
 
 # Save model
 torch.save(model.state_dict(), "mlp_mixer.pth")
-print("✅ Model trained and saved as mlp_mixer.pth")
+print("Model trained sucessfully")
