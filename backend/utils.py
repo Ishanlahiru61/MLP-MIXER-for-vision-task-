@@ -2,8 +2,8 @@ import os
 import shutil
 import random
 
-# Paths
-base_dir = "/Users/ishanlahiru/Downloads/archive/PetImages"  # <-- change if different
+
+base_dir = "/Users/ishanlahiru/Downloads/archive/PetImages"  
 output_dir = "/Users/ishanlahiru/mlp-mixer-project/dataset"
 
 categories = ["Cat", "Dog"]
@@ -36,5 +36,5 @@ for category in categories:
         if os.path.isfile(src):
             shutil.copy(src, dst)
 
-print("✅ Dataset split into 80% train and 20% test successfully!")
+print(" Dataset split into 80% train and 20% test successfully!")
             
