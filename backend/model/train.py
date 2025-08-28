@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from mlp_mixer import MlpMixer
 
-# Hyperparameters
+
 BATCH_SIZE = 32
 EPOCHS = 5
 LR = 0.001
@@ -23,7 +23,7 @@ test_data = datasets.ImageFolder("dataset/test", transform=transform)
 train_loader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
 test_loader = DataLoader(test_data, batch_size=BATCH_SIZE, shuffle=False)
 
-# Model
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = MlpMixer(image_size=IMG_SIZE).to(device)
 
