@@ -22,7 +22,7 @@ MLP-Mixer for Image Classification
 
  Notes
         Large datasets and trained models may need to be downloaded separately. using given link you can download pet dataset which i also used it include Cats and Dogs                    Classification Dataset
-        Designed for educational and research purposes
+      
 
 ![Alt text](assets/photo1.png)
 ![Alt text](assets/photo2.png)
